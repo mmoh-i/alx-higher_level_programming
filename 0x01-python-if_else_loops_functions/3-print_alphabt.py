@@ -6,4 +6,4 @@ for i in range(97, 123):
         continue
     else:
         pass
-    print(chr(i))
+    print(chr(i), end = "")
