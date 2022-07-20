@@ -7,5 +7,5 @@ class Square:
     def __init__(self, size):
 
         """defining the public instance variable size"""
-        self.size = size
+        self.__size = size
 
