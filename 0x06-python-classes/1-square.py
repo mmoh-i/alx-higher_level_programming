@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""square method"""
+"""square module"""
 
 
 class Square:
     """Defines a square"""
     def __init__(self, size):
-
-        """defining the public instance variable size"""
+        """Constructor.
+        Args:
+            size: length of side of the square.
+        """
         self.__size = size
 
