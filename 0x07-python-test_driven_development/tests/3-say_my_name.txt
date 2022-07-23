@@ -1,0 +1,17 @@
+Using ```say_my_name```
+---------------------
+The txt file for the test case of ```say_my_name``` 
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+====================
+>>> say_my_name(4, "ibrahim")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+>>> say_my_name("adam", 4)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name("adam", "ibrahim")
+'My name is adam ibrahim'
