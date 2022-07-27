@@ -1,10 +1,14 @@
+
 #!/usr/bin/python3
 """Defines a Rectangle class."""
 
 
 class Rectangle:
-    """Represent a rectangle."""
-    
+    """Represent a rectangle.
+    Attributes:
+        number_of_instances (int): The number of Rectangle instances.
+    """
+
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
@@ -16,7 +20,6 @@ class Rectangle:
         type(self).number_of_instances += 1
         self.width = width
         self.height = height
-   
 
     @property
     def width(self):
@@ -75,7 +78,6 @@ class Rectangle:
         return (rect)
 
     def __del__(self):
-        type(self).number_of_instances -= 1
         """Print a message for every deletion of a Rectangle."""
+        type(self).number_of_instances -= 1
         print("Bye rectangle...")
-       
