@@ -1,5 +1,5 @@
---A script that creates the database htbn_0d_usa with table cities.
---(in the database hbtn_0d_usa)on MySqL.
+-- A script that creates the database htbn_0d_usa with table cities.
+-- (in the database hbtn_0d_usa)on MySqL.
 CREATE DATABASE IF NOT EXISTS `hbtn_0d_usa`;
 CREATE TABLE IF NOT EXISTS `hbtn_0d_usa`.cities (
 	PRIMARY KEY(`id`),
