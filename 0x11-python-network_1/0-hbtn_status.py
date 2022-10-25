@@ -1,6 +1,11 @@
-#!/usr/bin/bash
-import urllib.request
+#!usr/bun/bash
+# Python script that fetches data
 
-with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as response:
-    html = response.read()
-    print(f"- {response}")
+if __name__ == "__main__":
+    import urllib.request
+    with urllib.request.Request("https://alx-intranet.hbtn.io/status") as response:
+        body = response.read()
+        print("Body resppnse:")
+        print("\t - type: {}".format(type(body)))
+        print("\t - contrnt: {}".format(body))
+        print("\t - utf8 content: {}".format(body.decode("utf-8")))
