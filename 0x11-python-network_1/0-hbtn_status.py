@@ -1,4 +1,4 @@
-#!usr/bun/bash
+#!usr/bin/python3
 # Python script that fetches data
 
 if __name__ == "__main__":
