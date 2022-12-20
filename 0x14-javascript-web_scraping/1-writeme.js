@@ -1,9 +1,10 @@
 #!/usr/bin/node
-
 const fs = require('fs');
-const file = process.argv[2];
-const string = process.argv[3];
+const destPath = process.argv[2];
+const sourceStr = process.argv[3];
 
-fs.writeFile(file, string, 'utf-8', function (err) {
-  if (err) console.log(err);
+fs.appendFile(destPath, sourceStr, 'utf8', function (err) {
+  if (err) {
+    console.log(err);
+  }
 });
