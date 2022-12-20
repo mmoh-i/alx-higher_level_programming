@@ -1,28 +1,20 @@
 #!/usr/bin/python3
-"""script that takes in a letter and sends a POST request to
-http://0.0.0.0:5000/search_user with the letter as a parameter.
-The letter must be sent in the variable q
-If no argument is given, set q=""
-If the response body is properly JSON formatted and not empty,
-display the id and name like this: [<id>] <name>"""
-
+"""Send a POST request to the specified URL in the variable 'q'"""
 
 if __name__ == "__main__":
-    import requests
+    from requests import post
     from sys import argv
 
-    value = {'q': ''}
-    if len(argv) > 1:
-        value = {'q': argv[1]}
-        response = requests.post('http://0.0.0.0:5000/search_user', value)
-        content_type = response.headers.get('Content-Type')
-        if content_type == 'application/json':
-            dict_cnt = eval(response.content)
-            if (dict_cnt) != {}:
-                print('[{}] {}'.format(dict_cnt['id'], dict_cnt['name']))
-            else:
-                print('No result')
+    try:
+        if len(argv) < 2:
+            letter = ""
         else:
-            print('Not a valid JSON')
-    else:
-        print('No result')
+            letter = argv[1]
+        r = post('http://0.0.0.0:5000/search_user', data={'q': letter})
+        j = r.json()
+        if not j:
+            print('No result')
+        else:
+            print('[{}] {}'.format(j.get('id'), j.get('name')))
+    except ValueError:
+        print('Not a valid JSON')
