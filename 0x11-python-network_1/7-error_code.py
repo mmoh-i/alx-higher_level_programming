@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-# A script that sends a request to the URL
-import sys
-import requests
+"""script that takes in a URL, sends a request to the URL and
+displays the body of the response."""
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-
-    res = requests.get(url)
-    if r.status_code >= 400:
-        print("Error code: {}".format(res.status_code))
+    import requests
+    from sys import argv
+    response = requests.get(argv[1])
+    if response.status_code >= 400:
+        print("Error code: {}".format(response.status_code))
     else:
-        print(res.text)
+        print(response.text)
