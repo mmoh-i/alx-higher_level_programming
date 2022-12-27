@@ -1,9 +1,13 @@
 #!/usr/bin/node
 
-const { dict } = require('./101-data');
+const dict = require('./101-data').dict;
+const newDict = {};
 
-const myValue = Object.entries(dict).reduce((acc, [key, value]) => {
-  acc[value] = acc[value] ? [...acc[value], key] : [key];
-  return acc;
-}, {});
-console.log(myValue);
+Object.keys(dict).map(function (key) {
+  if (!Array.isArray(newDict[dict[key]])) {
+    newDict[dict[key]] = [];
+  }
+  newDict[dict[key]].push(key);
+});
+
+console.log(newDict); 
