@@ -1,17 +1,10 @@
 #!/usr/bin/python3
-def magic_calculation(a, b):
+def safe_function(fct, *args):
+    import sys
 
-    result = 0
+    try:
+        return fct(*args)
 
-    for i in range(1, 3):
-        try:
-            if i > a:
-                raise Exception("Too far")
-            else:
-                result = result + (a ** b) / i
-
-        except:
-            result = b + a
-            break
-
-    return result
+    except (ValueError, ZeroDivisionError, TypeError, IndexError) as vzti:
+        print("Exception: {}".format(vzti), file=sys.stderr)
+        return None
